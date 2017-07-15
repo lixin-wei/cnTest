@@ -90,10 +90,12 @@
         $objPanel.find("#pageNum").text((page+1) + "-" + pageList.length);
         changeMainToUrl(pageList[page]);
         //记录换页log
-        dataPack.log.push({
-            page: pageList[currentPage],
-            time: audioRecorder.recordingTime().toFixed(2)
-        });
+        if(audioRecorder.isRecording()) {
+            dataPack.log.push({
+                page: pageList[currentPage],
+                time: audioRecorder.recordingTime().toFixed(2)
+            });
+        }
     }
 	$("a").click(function(e){
 	    if(this.id === "prev") {
