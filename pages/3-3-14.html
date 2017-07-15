@@ -1,0 +1,48 @@
+<div class="content-container type-4-2">
+    <h1>3-3-14. 小芳应该把杯子还给小红。</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.3. Treatment - Control/video/14.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. What is transferred?</p>
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. Cup.
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. Apple.
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 0;
+    var okText = "Congratulations!";
+    var wrongText = "Ooops! Try again!";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

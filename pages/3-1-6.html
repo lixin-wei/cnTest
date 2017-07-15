@@ -1,0 +1,49 @@
+<div class="content-container type-4-2">
+    <h1>3-1-6</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/6.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Where should we put 想（xiang3）?</p>  <!-- 这个地方放置的是题目-->
+        <p>他①把牛奶②喝了。（ta1 ① ba3 niu2nai3 ② he1 le.）</p>
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                ①
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                ②
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 0;
+    var okText = "Congratulations! Do you see what function 想（xiang3） has in the sentence and where it is placed in relation to 把?";
+    var wrongText = "Ooops! Try again!";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

@@ -1,0 +1,32 @@
+<div class="content-container type-name-input">
+    <h1>Basic Info.</h1>
+    <hr>
+    <div class="form-group row" style="margin-bottom: 37px;">
+        <label for="name-text-input" class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+            <input class="form-control" type="text" value="" id="name-text-input">
+            <div class="form-control-feedback"></div>
+        </div>
+    </div>
+    <h1>Mic. Test</h1>
+    <hr>
+    <div>Be sure your microphone works, and the browser's recording privilege is authorized. Speak to your microphone and check whether the visualizer on the top has any response.</div>
+    <div class="row justify-content-md-center" style="margin-top: 37px;">
+        <button class="btn btn-secondary" id="ok">OK, Let's go.</button>
+    </div>
+</div>
+
+<script>
+    $("#ok").click(function () {
+        var realName = $("#name-text-input").val();
+        if(realName === "") {
+            $("div.form-group").addClass("has-danger")
+                .find("div.form-control-feedback").text("Name can not be empty");
+            return;
+        }
+        dataPack.name = realName;
+        window.audioRecorder.startRecording();
+        switchPage(0);
+        $objPanel.removeClass("hide");
+    });
+</script>

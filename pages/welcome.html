@@ -1,0 +1,78 @@
+<div id="welcome" class="row align-items-center">
+    <div class="col">
+        <div id="index-big-title">Welcome</div>
+        <div id="index-links">
+            <ul>
+                <li><a href="#" id="part1">Part 1</a></li>
+                <li><a href="#" id="part2">Part 2</a></li>
+                <li><a href="#" id="part3-1">Part 3-1</a></li>
+                <li><a href="#" id="part3-2">Part 3-2</a></li>
+                <li><a href="#" id="part3-3">Part 3-3</a></li>
+                <li><a href="#" id="part4">Part 4</a></li>
+                <li><a href="#" id="part5">Part 5</a></li>
+                <!--<li><a href="#" id="part6">Part 6</a></li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $objWelcome = $("#welcome");
+    $(window).ready(function () {
+        $objWelcome.height($(window).height() - 150);
+    });
+    $(window).resize(function () {
+        $objWelcome.height($(window).height() - 150);
+    });
+    $("a[id^=part]").click(function(e){
+        dataPack.part = this.id;
+        //更新页面列表
+        pageList = [];
+        var i;
+        if(this.id.charAt(4) === "1") {
+            pageList.push("1-1-intro.html");
+            for (i=1 ; i<=83 ; ++i) pageList.push("1-1-" + i + ".html");
+            pageList.push("end-no-download.html");
+            $objPanel.removeClass("hide");
+            switchPage(0);
+            return;
+        }
+        else if(this.id.charAt(4) === "2") {
+            pageList.push("2-1-intro.html");
+            for (i=1 ; i<=10 ; ++i) pageList.push("2-1-" + i + ".html");
+            pageList.push("2-2-intro.html");
+            for (i=1 ; i<=10 ; ++i) pageList.push("2-2-" + i + ".html");
+        }
+        else if(this.id === "part3-1") {
+            for (i=1 ; i<=8 ; ++i) pageList.push("3-1-" + i + ".html");
+            pageList.push("3-1-L1.html");
+            for (i=9 ; i<=11 ; ++i) pageList.push("3-1-" + i + ".html");
+            pageList.push("3-1-L2.html");
+            for (i=12 ; i<=14 ; ++i) pageList.push("3-1-" + i + ".html");
+            pageList.push("3-1-L3.html");
+            for (i=15 ; i<=17 ; ++i) pageList.push("3-1-" + i + ".html");
+            pageList.push("3-1-L4.html");
+            for (i=18 ; i<=20 ; ++i) pageList.push("3-1-" + i + ".html");
+        }
+        else if(this.id === "part3-2") {
+            for(i=1 ; i<=20 ; ++i) pageList.push("3-2-" + i + ".html");
+        }
+        else if(this.id === "part3-3") {
+            for(i=1 ; i<=20 ; ++i) pageList.push("3-3-" + i + ".html");
+        }
+        else if(this.id.charAt(4) === "4") {
+            pageList.push("4-1-intro.html");
+            for (i=1 ; i<=20 ; ++i) pageList.push("4-1-" + i + ".html");
+            pageList.push("4-2-intro.html");
+            for (i=1 ; i<=20 ; ++i) pageList.push("4-2-" + i + ".html");
+        }
+        else if(this.id.charAt(4) === "5") {
+            pageList.push("5-1-intro.html");
+            for (i=1 ; i<=20 ; ++i) pageList.push("4-1-" + i + ".html");
+            pageList.push("5-2-intro.html");
+            for (i=1 ; i<=20 ; ++i) pageList.push("4-2-" + i + ".html");
+        }
+        pageList.push("end-with-download.html");
+        changeMainToUrl("nameInput.html");
+        e.preventDefault();
+    });
+</script>

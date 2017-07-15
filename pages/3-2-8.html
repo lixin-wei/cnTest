@@ -1,0 +1,50 @@
+<div class="content-container type-4-2">
+    <h1>3-2-8</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.2. Treatment - Deductive Instruction 拼音/video/8.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 你应该不把蛋糕吃了。（ni3 ying1gai1 bu4 ba3 dan4gao1 chi1 le.） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 你不应该把蛋糕吃了。（ni3 bu4 ying1gai1 ba3 dan4gao1 chi1 le.）
+            </label>
+        </div>
+    </div>
+    <div class="end">
+        <p>Rule: If we want to use a negative adverb (such as 不 “not”) to negate the modal verb (such as 应该 “should”), we should put the negative adverb IMMEDIATELY BEFORE the modal verb.</p>
+    </div>
+</div>
+<script>
+    var okAns = 1;
+    var okText = "Congratulations!";
+    var wrongText = "Ooops! Try again!";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

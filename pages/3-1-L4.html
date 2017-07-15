@@ -1,0 +1,27 @@
+<div class="content-container">
+    <h1>Recap time!</h1>   <!-- 最前面的标题，修改为自己需要的 -->
+    <hr>
+    <div>
+        <p>Excellent! From the previous sentences, did you notice anything interesting that may probably help you as you continue? Select which one(s) of these you noticed:</p> <!-- 输入题目-->
+        <p><input type="checkbox" name="category" value="A" />A. When the result of the action is that the thing is transformed to or viewed as another thing, we put the new thing after 成.</p>    <!-- 后面几个格式都是一样的，value的值要修改，表示这个是选项几，后面是选项的内容-->
+        <p><input type="checkbox" name="category" value="B" />B. We put the result of the action AFTER the verb.</p>
+        <p><input type="checkbox" name="category" value="C" />C. We put modal verbs like 想 and 应该 BEFORE 把.</p>
+        <p><input type="checkbox" name="category" value="D" />D. To negate the sentence, we put 没 BEFORE 把.</p>
+        <p><input type="checkbox" name="category" value="E" />E. We put 不 BEFORE modal verbs.</p>
+        <p><input type="checkbox" name="category" value="F" />F. We put the person doing the action BEFORE 把.</p>
+        <p><input type="checkbox" name="category" value="G" />G. We put the thing influenced by the action AFTER 把.</p>
+        <p><input type="checkbox" name="category" value="H" />H. We put the verb describing the action AFTER the thing.</p>
+        <p><input type="checkbox" name="category" value="I" />I. The verb must have some words after it, such as 成….</p>
+        <p><input type="checkbox" name="category" value="J" />J. I am not really sure.</p>
+    </div>
+</div>
+
+<script>
+    $("input").change(function () {
+        var ans = "";
+        $("input[name=category]").each(function () {
+            if(this.checked)ans += this.value;
+        });
+        dataPack.ans[pageList[currentPage]] = ans;
+    });
+</script>

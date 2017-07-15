@@ -1,0 +1,54 @@
+<div class="content-container type-4-2">
+    <h1>3-1-16</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/16.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 学生把老师看成活字典。（xue2sheng1 ba3 lao3shi1 kan4 cheng2 huo2 zi4dian3.） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 学生把老师看。（xue2sheng1 ba3 lao3shi1 kan4.）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                C. 学生把老师看成。（xue2sheng1 ba3 lao3shi1 kan4 cheng2.）
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 0;
+    var okText = "Congratulations! Do you see a common pattern in 看成活字典（kan4 cheng2 huo2 zi4dian3） and 写成“大”字（xie3 cheng2 da4zi4）?";
+    var wrongText = "Sorry, wrong answer. Do you remember the previous sentence 她把“天”字写成“大”字（ta1 ba3 tian1zi4 xie3 cheng1 da4zi4? Compare the two sentences carefully and try again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

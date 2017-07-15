@@ -1,0 +1,55 @@
+<div class="content-container type-4-2">
+    <h1>3-1-18</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/18.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. How should we fill in the blank?</p>  <!-- 这个地方放置的是题目-->
+        <p>商人不应该把农田变【 】游乐场。（shang1ren2 bu4 ying1gai1 ba3 nong2tian2 bian4 【 】 you2le4chang3。）</p>
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 在（zai4） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 成（cheng2）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                C. 给（gei3）
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 1;
+    var okText = "Congratulations! Do you see how these sentences with 成 (她把“天”字写成“大”字（ta1 ba3 tian1zi4 xie3 cheng2 da4zi4）, 学生把老师看成活字典（xue2sheng1 ba3 lao3shi1 kan4 cheng2 huo2zi4dian3）, 小芳不想把小红当成好朋友（xiao3fang1 bu4 xiang3 ba3 xiao3hong2 dang1 cheng2 hao3peng2you3）) are common in meaning? Hint: Look closely into the part of the sentence that describes the result of the action.";
+    var wrongText = "Ooops, wrong answer. Recall the sentences 她把“天”字写成“大”字（ta1 ba3 tian1zi4 xie3 cheng2 da4zi4）, 学生把老师看成活字典（xue2sheng1 ba3 lao3shi1 kan4 cheng2 huo2zi4dian3）, 小芳不想把小红当成好朋友（xiao3fang1 bu4 xiang3 ba3 xiao3hong2 dang1 cheng2 hao3peng2you3）. Think how they are common in meaning, especially regarding the result of the action, and try again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

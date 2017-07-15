@@ -1,0 +1,57 @@
+<div class="content-container type-4-2">
+    <h1>3-2-20</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.2. Treatment - Deductive Instruction 拼音/video/20.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. How should we fill in the blank?</p>  <!-- 这个地方放置的是题目-->
+        <p>女孩应该把画挂【 】墙上。（nv3hai2 ying1gai1 ba3 hua4 gua4 【 】 qiang2 shang4。）</p>
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 给（gei3）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 在（zai4）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                C. 成（cheng2）
+            </label>
+        </div>
+    </div>
+    <div class="end">
+        <p>Rule: When the result of the disposal or impact is that the thing is moved from one location to another location, we use the phrase “在 + new location + position word (such as 上, 左边)”. When the result of the disposal or impact is that the thing is transferred from one person to another person, we use the phrase “给 + new person”. When the result of the disposal or impact is that the thing is transformed from one thing to another thing, we use the phrase “成 + new thing”.</p>
+    </div>
+</div>
+<script>
+    var okAns = 1;
+    var okText = "Congratulations!";
+    var wrongText = "Ooops! Try again!";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

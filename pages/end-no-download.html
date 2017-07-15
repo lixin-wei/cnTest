@@ -1,0 +1,15 @@
+<div class="content-container">
+    <h1>Well done</h1>
+    <hr>
+    <div class="lead">You've finished this part. Refresh the site to choose another part.</div>
+    <div class="row justify-content-md-center" style="margin-top: 50px;">
+        <button class="btn btn-secondary" id="refresh">Refresh</button>
+    </div>
+</div>
+
+<script>
+    $objPanel.addClass("hide");
+    $("#refresh").click(function () {
+        window.location.reload();
+    });
+</script>

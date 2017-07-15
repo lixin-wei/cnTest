@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/tether/1.4.0/css/tether.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/app.css">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <!--侧边栏start-->
+    <div class="sidebar right">
+        <button type="button" class="close" id="sidebarCloser">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="content"></div>
+    </div>
+    <!--侧边栏end-->
+
+    <!--侧边栏开启按钮start-->
+    <div class="sidebarToggle right" id="sidebarOpener">
+    </div>
+    <!--侧边栏开启按钮end-->
+	<div class="container">
+        <canvas class="visualizer" height="60px" width="0"></canvas>
+        <div id="recordingList"></div>
+        <div id="main">
+        </div>
+        <div id="control-panel" class="hide row justify-content-md-center">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#" id="prev">Prev.</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#" id="pageNum">1-1</a></li>
+                <li class="page-item"><a class="page-link" href="#" id="next">Next</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-sidebar/3.3.2/jquery.sidebar.min.js"></script>
+<script src="../js/WebAudioRecorder.min.js"></script>
+<script src="../js/jquery.ajax-progress.js"></script>
+<script src="../js/app.js"></script>
+<script>
+    //侧边栏
+    $(".sidebar.right").sidebar({side: "right"});
+    $.get("vocabulary.html", function (res) {
+        $(".sidebar.right").find(".content").html(res);
+    });
+    $("#sidebarOpener").click(function () {
+        $(".sidebar.right").trigger("sidebar:open");
+    });
+    $("#sidebarCloser").click(function () {
+        $(".sidebar.right").trigger("sidebar:close");
+    });
+    $(window).click(function (e) {
+        if(e.pageX < $(window).width()/2) {
+            $(".sidebar.right").trigger("sidebar:close");
+        }
+    });
+    var $objMain = $("#main"),
+        $objPanel = $("#control-panel");
+    function changeMainToUrl(url) {
+        $objMain.animate({opacity: 0}, 400, function () {
+            $.get(url, function(res) {
+                $objMain.html(res);
+                $objMain.animate({opacity: 1}, 400);
+                //每次翻页重新注册记录答案的事件, part3特殊处理
+                if(dataPack.part.charAt(4) !== "3") {
+                    $("#checkGroup").find("input").change(function () {
+                        var ans = this.id.charAt(5);
+                        dataPack.ans[pageList[currentPage]] = ans;
+                    });
+                }
+            });
+        });
+    }
+    var pageList = [], currentPage = -1;
+    var dataPack = {};
+    dataPack.ans = {};//选项答案记录
+    dataPack.log = [];//换页操作时间记录
+    dataPack.part = "";//part名
+    function switchPage(page) {
+        if(page >= pageList.length || page < 0)return;
+        currentPage = page;
+        $objPanel.find("#pageNum").text((page+1) + "-" + pageList.length);
+        changeMainToUrl(pageList[page]);
+        //记录换页log
+        dataPack.log.push({
+            page: pageList[currentPage],
+            time: audioRecorder.recordingTime().toFixed(2)
+        });
+    }
+	$("a").click(function(e){
+	    if(this.id === "prev") {
+	        switchPage(currentPage - 1);
+        }
+        else if(this.id === "next") {
+	        switchPage(currentPage + 1);
+        }
+		e.preventDefault();
+	});
+    window.onbeforeunload = function(e) {
+        var dialogText = 'Are you sure to leave or reload this page?';
+        e.returnValue = dialogText;
+        return dialogText;
+    };
+
+    $(window).ready(function () {
+        currentPage = "welcome.html";
+        changeMainToUrl("welcome.html");
+        $(".visualizer").attr("width", $("#main").width());
+    });
+    //设置canvas大小
+    $(window).resize(function () {
+       $(".visualizer").attr("width", $("#main").width());
+    });
+
+</script>

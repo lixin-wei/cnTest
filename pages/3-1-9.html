@@ -1,0 +1,55 @@
+<div class="content-container type-4-2">
+    <h1>3-1-9</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/9.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Where should we put 在桌子上（zai4 zhuo1zi shang4）?</p>  <!-- 这个地方放置的是题目-->
+        <p>女孩把①闹钟②放③。（na3hai2 ba3 ① nao4zhong1 ② fang4 ③。）</p>
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                ①
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                ②
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                ③
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 2;
+    var okText = "Great! Recall the sentence 女孩把桌子擦干净了（nv3hai2 ba3 zhuo1zi ca1 gan1jing4 le）. Do you find something in common between 干净（gan1jing4） and 在桌子上（zai4 zhuo1zi shang4）, like their function in the sentence and where they are placed? Also, do you find something different between the two?";
+    var wrongText = "Ooops! Do you remember the sentence 女孩把桌子擦干净了（nv3hai2 ba3 zhuo1zi ca1 gan1jing4 le）? See where 干净（gan1jing4） is placed and try again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

@@ -1,0 +1,54 @@
+<div class="content-container type-4-2">
+    <h1>3-1-11</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/11.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 女孩把大衣放没在沙发左边。（nv3hai2 ba3 da4yi1 fang4 mei2 zai4 sha1fa1 zuo3bian1.） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 女孩没把大衣放在沙发左边。（nv3hai2 mei2 ba3 da4yi1 fang4 zai4 sha1fa1 zuo3bian1.）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                C. 女孩把没大衣放在沙发左边。（nv3hai2 ba3 mei2 da4yi1 fang4 zai4 sha1fa1 zuo3bian1.）
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 1;
+    var okText = "Congratulations! Do you see a common pattern in 女孩没把大衣放在沙发左边（nv3hai2 mei2 ba3 da4yi1 fang4 zai4 sha1fa1 zuo3bian1） and 女孩没把衣服扔了（nv3hai2 mei2 ba3 yi1fu reng1 le）?";
+    var wrongText = "Ooops, wrong answer. Recall the sentence 女孩没把衣服扔了（nv3hai2 mei2 ba3 yi1fu reng1 le）. See where 没（mei2） is placed and try again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

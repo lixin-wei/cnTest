@@ -1,0 +1,55 @@
+<div class="content-container type-4-2">
+    <h1>3-1-19</h1>>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/19.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. How should we fill in the blank?</p>  <!-- 这个地方放置的是题目-->
+        <p>商人不应该把农田变【 】游乐场。（shang1ren2 bu4 ying1gai1 ba3 nong2tian2 bian4 【 】 you2le4chang3。）</p>
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 在（zai4）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 成（cheng2）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                C. 给（gei3）
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 0;
+    var okText = "Congratulations! Do you see how these sentences with 给 (小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）, 女孩把尺子借给另一个女孩（nv3hai2 ba3 chi3zi jie4 gei3 ling4yi1ge4 nv3hai2）, 小芳应该把杯子还给小红（xiao3fang1 ying1gai1 ba3 bei1zi huan2 gei3 xiao3hong2）) are common in meaning? Hint: Look closely into the part of the sentence that describes the result of the action.";
+    var wrongText = "Ooops, wrong answer. Recall the sentences 小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）, 女孩把尺子借给另一个女孩（nv3hai2 ba3 chi3zi jie4 gei3 ling4yi1ge4 nv3hai2）, 小芳应该把杯子还给小红（xiao3fang1 ying1gai1 ba3 bei1zi huan2 gei3 xiao3hong2）. Think how they are common in meaning, especially regarding the result of the action, and try again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

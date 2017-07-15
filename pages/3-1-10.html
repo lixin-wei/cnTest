@@ -1,0 +1,60 @@
+<div class="content-container type-4-2">
+    <h1>3-1-10</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/10.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 她把时间表贴在门。（ta1 ba3 shi2jian1biao3 tie1 zai4 men2.） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 她把时间表贴在门上。（ta1 ba3 shi2jian1biao3 tie1 zai4 men2 shang4.）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
+                C. 她把时间表贴门。（ta1 ba3 shi2jian1biao3 tie1 men2.）
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioD">
+                D. 她把时间表贴。（ta1 ba3 shi2jian1biao3 tie1.）
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 1;
+    var okText = "Congratulations! Do you see a common pattern in 贴在门上（tie1 zai4 men2 shang4） and 放在桌子上（fang4 zai4 zhuo1zi shang4）?";
+    var wrongText = "Sorry, wrong answer. Do you remember the previous sentence 女孩把闹钟放在桌子上（nv3hai2 ba3 nao4zhong1 fang4 zai4 zhuo1zi shang4）? Compare the two sentences carefully and try again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

@@ -1,0 +1,80 @@
+<div class="content-container">
+    <h1>Well done</h1>
+    <hr>
+    <div class="lead" style="margin-bottom: 20px;">
+        You've finished this part, but hold on.<br/>
+        <strong>Some data need to be uploaded to the server. Click the button below to upload the data. Please do not leave this page until data is completely uploaded. If uploading fails, click the button to try again.</strong><br/>
+        If uploading keeps failing, you could download <a href="#" id="file1">file1</a> and <a href="#" id="file2">file2</a>, and copy to the girl manually :).
+    </div>
+    <h1>Upload progress</h1>
+    <hr>
+    <div class="progress" style="margin-bottom: 15px;">
+        <div class="progress-bar bg-info" role="progressbar" style="width: 0;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="uploadProgress"></div>
+    </div>
+    <div id="successInfo" class="hide" style="margin-bottom: 15px;">
+        All done, refresh to choose another part.
+    </div>
+    <div class="row justify-content-md-center">
+        <button class="btn btn-secondary" id="uploadButton" disabled>Processing</button>
+    </div>
+</div>
+
+<script>
+    function uploadSuccess() {
+        $('#uploadProgress').width("100%").text("Successfully uploaded!")
+            .removeClass("bg-info").addClass("bg-success");
+        $("#successInfo").removeClass("hide");
+    }
+    function uploadFail() {
+        $('#uploadProgress').width("100%").text("Failed, try again!")
+            .removeClass("bg-info").addClass("bg-danger");
+        $("#uploadButton").removeAttr("disabled");
+    }
+    $("#uploadButton").click(function () {
+        upload();
+    });
+    function upload() {
+        $('#uploadProgress').width(0).text("0%")
+            .removeClass("bg-danger").addClass("bg-info");
+        $("#uploadButton").attr("disabled", "1");
+        $.ajax({
+            type: 'POST',
+            url: '../php/fileHandler.php',
+            data: postData,
+            processData: false,
+            contentType: false,
+            success: function() {
+                uploadSuccess();
+            },
+            error: function() {
+                uploadFail();
+            },
+            progress: function(e) {
+                console.log(e);
+                //make sure we can compute the length
+                if(e.lengthComputable) {
+                    //calculate the percentage loaded
+                    var pct = parseInt((e.loaded / e.total) * 100);
+
+                    //log percentage loaded
+                    $('#uploadProgress').width(pct+"%").text(pct+"%");
+                    console.log(pct);
+                }
+                //this usually happens when Content-Length isn't set
+                else {
+                    console.warn('Content Length not reported!');
+                }
+            }
+        }).done(function(data) {
+            console.log(data);
+            if(data ==="ok") {
+                uploadSuccess();
+            }
+            else {
+                uploadFail();
+            }
+        });
+    }
+    audioRecorder.finishRecording();
+    $objPanel.addClass("hide");
+</script>

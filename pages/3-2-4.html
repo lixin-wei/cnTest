@@ -1,0 +1,50 @@
+<div class="content-container type-4-2">
+    <h1>3-2-4</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.2. Treatment - Deductive Instruction 拼音/video/4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 男孩把披萨吃。（nan2hai2 ba3 pi1sa4 chi1.） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 男孩把披萨吃了。（nan2hai2 ba3 pi1sa4 chi1 le.）
+            </label>
+        </div>
+    </div>
+    <div class="end">
+        <p>Rule: We cannot use only the bare verb itself in a 把 sentence. The verb must have something after it, such as the perfective marker 了 to indicate that the action is finished.</p>
+    </div>
+</div>
+<script>
+    var okAns = 1;
+    var okText = "Congratulations!";
+    var wrongText = "Ooops! Try again!";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

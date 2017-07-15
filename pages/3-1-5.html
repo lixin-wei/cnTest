@@ -1,0 +1,48 @@
+<div class="content-container type-4-2">
+    <h1>3-1-5</h1>
+    <hr>
+    <div class="video">
+        <video width="100%" controls controlsList="nodownload">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pre">
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
+    </div>
+    <div class="text-danger">
+    </div>
+    <div id="checkGroup">
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
+                A. 女孩把桌子擦干净了。（nv3hai2 ba3 zhuo1zi ca1 gan1jing4 le.） <!-- 这个是每一个选项放置的内容-->
+            </label>
+        </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
+                B. 女孩把桌子干净擦了。（nv3hai2 ba3 zhuo1zi gan1jing4 ca1 le.）
+            </label>
+        </div>
+    </div>
+
+</div>
+<script>
+    var okAns = 0;
+    var okText = "Great! Do you see what function 干净（gan1jing4） has in the sentence and where it is placed?";
+    var wrongText = "Sorry, wrong answer. Compare the two sentences carefully and choose again.";
+    var first = true;
+    $("#checkGroup").find("input").change(function () {
+        if(first === true) {
+            first = false;
+            dataPack.ans[pageList[currentPage]] = this.id.charAt(5);
+        }
+        if(document.getElementsByName('ansRadio[]')[okAns].checked) {
+            $(".text-danger").text(okText);
+        }
+        else {
+            $(".text-danger").text(wrongText);
+        }
+    });
+</script>

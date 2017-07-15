@@ -1,0 +1,26 @@
+<div class="content-container">
+    <h1>Recap time!</h1>   <!-- 最前面的标题，修改为自己需要的 -->
+    <hr>
+    <div>
+        <p>Excellent! From the previous sentences, did you notice anything interesting that may probably help you as you continue? Select which one(s) of these you noticed:</p> <!-- 输入题目-->
+        <p><input type="checkbox" name="category" value="A" />A. We put the person doing the action BEFORE 把.</p>    <!-- 后面几个格式都是一样的，value的值要修改，表示这个是选项几，后面是选项的内容-->
+        <p><input type="checkbox" name="category" value="B" />B. We put the thing influenced by the action AFTER 把.</p>
+        <p><input type="checkbox" name="category" value="C" />C. We put the verb describing the action AFTER the thing.</p>
+        <p><input type="checkbox" name="category" value="D" />D. The verb must have some words after it, such as了.</p>
+        <p><input type="checkbox" name="category" value="E" />E. We put the result of the action, such as the new status of the thing after change, AFTER the verb.</p>
+        <p><input type="checkbox" name="category" value="F" />F. We put words like 想 BEFORE 把.</p>
+        <p><input type="checkbox" name="category" value="G" />G. To negate the sentence, we put 没 BEFORE 把.</p>
+        <p><input type="checkbox" name="category" value="H" />H. We should say 不应该 instead of 应该不.</p>
+        <p><input type="checkbox" name="category" value="I" />I. I am not really sure.</p>
+    </div>
+</div>
+
+<script>
+    $("input").change(function () {
+        var ans = "";
+        $("input[name=category]").each(function () {
+            if(this.checked)ans += this.value;
+        });
+        dataPack.ans[pageList[currentPage]] = ans;
+    });
+</script>

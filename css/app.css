@@ -1,0 +1,105 @@
+#index-big-title {
+  text-align: center;
+  font-size: 50pt; }
+
+#index-links {
+  text-align: center; }
+  #index-links ul {
+    list-style: none;
+    padding: 0; }
+    #index-links ul li {
+      display: inline-block;
+      padding: 0 10px; }
+
+#control-panel {
+  margin: 10px 0 50px 0; }
+
+.hide {
+  display: none; }
+
+.content-container {
+  max-width: 600px;
+  margin: 15px auto 0 auto; }
+  .content-container .pre, .content-container .end, .content-container #checkGroup {
+    font-size: large;
+    margin: 5px 0;
+    background: #eee;
+    border-radius: 5px;
+    padding: 21px 15px 7px 15px; }
+  .content-container #checkGroup {
+    padding: 15px;
+    font-size: medium; }
+
+.type-1 .title, .type-1 .subtitle {
+  text-align: center; }
+.type-1 .title {
+  font-size: 35pt; }
+
+.type-2-1 ul, .type-4-1 ul, .type-5-1 ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+  text-align: center; }
+  .type-2-1 ul li, .type-4-1 ul li, .type-5-1 ul li {
+    display: inline-block;
+    padding: 5px 15px;
+    background: #eee;
+    border-radius: 5px; }
+
+.type-2-2 .title, .type-4-2 .title, .type-5-2 .title {
+  text-align: center; }
+.type-2-2 .subtitle, .type-4-2 .subtitle, .type-5-2 .subtitle {
+  text-align: center; }
+.type-2-2 #checkGroup, .type-4-2 #checkGroup, .type-5-2 #checkGroup {
+  margin: 10px 0; }
+
+.sidebar {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.64);
+  position: fixed;
+  z-index: 100;
+  padding: 30px;
+  text-align: center;
+  overflow: scroll; }
+  .sidebar.left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    background: white; }
+  .sidebar.right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: white; }
+  .sidebar.bottom {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 270px;
+    background: #03A9F4; }
+  .sidebar.top {
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 270px;
+    background: #03A9F4; }
+
+.sidebarToggle {
+  z-index: 99;
+  background: #eee;
+  width: 50px;
+  position: fixed; }
+  .sidebarToggle.right {
+    right: 0;
+    top: 0;
+    bottom: 0; }
+  .sidebarToggle.left {
+    left: 0;
+    top: 0;
+    bottom: 0; }
+  .sidebarToggle:hover {
+    background: #888;
+    cursor: pointer; }
+
+/*# sourceMappingURL=app.css.map */
