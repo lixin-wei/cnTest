@@ -34,6 +34,7 @@
     var okText = "Congratulations! Do you see what function 没（mei2） has in the sentence and where it is placed in relation to 把?";
     var wrongText = "Ooops! Seems like the place of 没（mei2） in the sentence is similar to the place of 想（xiang3）.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -41,6 +42,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

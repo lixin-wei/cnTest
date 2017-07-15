@@ -40,6 +40,7 @@
     var okText = "Great! Recall the sentence 小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）. Do you find something in common between 给小红（gei3 xiao3hong2） and 成“大”字（cheng2 da4zi4）, like their function in the sentence and where they are placed? Also, do you find something different between the two?";
     var wrongText = "Ooops! Do you remember the sentence 小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）? See where 给小红（gei3 xiao3hong2） is placed and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -47,6 +48,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

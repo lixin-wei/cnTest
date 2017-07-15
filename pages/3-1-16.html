@@ -39,6 +39,7 @@
     var okText = "Congratulations! Do you see a common pattern in 看成活字典（kan4 cheng2 huo2 zi4dian3） and 写成“大”字（xie3 cheng2 da4zi4）?";
     var wrongText = "Sorry, wrong answer. Do you remember the previous sentence 她把“天”字写成“大”字（ta1 ba3 tian1zi4 xie3 cheng1 da4zi4? Compare the two sentences carefully and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -46,6 +47,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

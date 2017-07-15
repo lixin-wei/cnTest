@@ -33,6 +33,7 @@
     var okText = "Great! Guess you must have understood the meaning of this sentence. So how are 应该（ying1gai1） and 不（bu4） sequenced when both of them exist?";
     var wrongText = "Sorry, wrong answer. Compare the two sentences carefully and choose again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -40,6 +41,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

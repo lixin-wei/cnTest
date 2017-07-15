@@ -40,6 +40,7 @@
     var okText = "Congratulations! Do you see how these sentences with 在 (女孩把闹钟放在桌子上（nv3hai2 ba3 nao4zhong1 fang4 zai4 zhuo1zi shang4）, 她把时间表贴在门上（ta1 ba3 shi2jian1biao3 tie1 zai4 men2 shang4）, 女孩没把大衣放在沙发左边（nv3hai2 mei2 ba3 da4yi1 fang4 zai4 sha1fa1 zuo3bian1）) are common in meaning? Hint: Look closely into the part of the sentence that describes the result of the action.";
     var wrongText = "Ooops, wrong answer. Recall the sentences 女孩把闹钟放在桌子上（nv3hai2 ba3 nao4zhong1 fang4 zai4 zhuo1zi shang4）, 她把时间表贴在门上（ta1 ba3 shi2jian1biao3 tie1 zai4 men2 shang4）, 女孩没把大衣放在沙发左边（nv3hai2 mei2 ba3 da4yi1 fang4 zai4 sha1fa1 zuo3bian1）. Think how they are common in meaning, especially regarding the result of the action, and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -47,6 +48,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

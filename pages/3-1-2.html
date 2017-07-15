@@ -33,6 +33,7 @@
     var okText = "Congratulations! Does this sentence follow the rule that you have just summarized for 她把毛巾洗了（ta1 ba3 mao2jin1 xi3 le.）?";
     var wrongText = "Ooops! Try again. Hint: Who wipes and what is wiped? Where are they placed in relation to 把 in the sentence?";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -40,6 +41,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

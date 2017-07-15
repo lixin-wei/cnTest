@@ -40,6 +40,7 @@
     var okText = "Congratulations! Do you see how these sentences with 给 (小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）, 女孩把尺子借给另一个女孩（nv3hai2 ba3 chi3zi jie4 gei3 ling4yi1ge4 nv3hai2）, 小芳应该把杯子还给小红（xiao3fang1 ying1gai1 ba3 bei1zi huan2 gei3 xiao3hong2）) are common in meaning? Hint: Look closely into the part of the sentence that describes the result of the action.";
     var wrongText = "Ooops, wrong answer. Recall the sentences 小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）, 女孩把尺子借给另一个女孩（nv3hai2 ba3 chi3zi jie4 gei3 ling4yi1ge4 nv3hai2）, 小芳应该把杯子还给小红（xiao3fang1 ying1gai1 ba3 bei1zi huan2 gei3 xiao3hong2）. Think how they are common in meaning, especially regarding the result of the action, and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -47,6 +48,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

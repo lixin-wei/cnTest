@@ -39,6 +39,7 @@
     var okText = "Congratulations! Do you see a common pattern in 借给另一个女孩（jie4 gei3 ling4yi1ge4 nv3hai2） and 递给小红（di4gei3 xiao3hong2）?";
     var wrongText = "Sorry, wrong answer. Do you remember the previous sentence 小芳把可乐递给小红（xiao3fang1 ba3 ke3le4 di4 gei3 xiao3hong2）? Compare the two sentences carefully and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -46,6 +47,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

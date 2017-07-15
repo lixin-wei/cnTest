@@ -33,6 +33,7 @@
     var okText = "Great! Do you see what function 干净（gan1jing4） has in the sentence and where it is placed?";
     var wrongText = "Sorry, wrong answer. Compare the two sentences carefully and choose again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -40,6 +41,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

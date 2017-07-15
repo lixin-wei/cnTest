@@ -45,6 +45,7 @@
     var okText = "Congratulations! Do you see a common pattern in 小芳应该把杯子还给小红（xiao3fang1 ying1gai1 ba3 bei1zi huan2 gei3 xiao3hong2.） and 他想把牛奶喝了（ta1 xiang3 ba3 niu2nai3 he1 le.）? Hint: How are 应该（ying1gai1） and 想（xiang3） common in meaning?";
     var wrongText = "Ooops, wrong answer. Recall the sentence 他想把牛奶喝了（ta1 xiang3 ba3 niu2nai3 he1 le.）. See where 想（xiang3） is placed and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -52,6 +53,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

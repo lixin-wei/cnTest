@@ -39,6 +39,7 @@
     var okText ="Congratulations! Do you see a common pattern in 小芳不想把小红当成好朋友（xiao3fang1 bu4 xiang3 ba3 xiao3hong2 dang1 cheng2 hao3 peng2） and 你不应该把蛋糕吃了（ni3 bu4 ying1gai1 ba3 dan4gao1 chi1 le）? Hint: How are 应该（ying1gai1） and 想（xiang3） common in meaning?";
     var wrongText = "Ooops, wrong answer. Recall the sentence 你不应该把蛋糕吃了（ni3 bu4 ying1gai1 ba3 dan4gao1 chi1 le）. See how 不应该把（bu4 ying1gai1 ba3） is sequenced and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -46,6 +47,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

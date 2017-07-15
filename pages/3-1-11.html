@@ -39,6 +39,7 @@
     var okText = "Congratulations! Do you see a common pattern in 女孩没把大衣放在沙发左边（nv3hai2 mei2 ba3 da4yi1 fang4 zai4 sha1fa1 zuo3bian1） and 女孩没把衣服扔了（nv3hai2 mei2 ba3 yi1fu reng1 le）?";
     var wrongText = "Ooops, wrong answer. Recall the sentence 女孩没把衣服扔了（nv3hai2 mei2 ba3 yi1fu reng1 le）. See where 没（mei2） is placed and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -46,6 +47,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);

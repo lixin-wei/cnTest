@@ -40,6 +40,7 @@
     var okText = "Great! Recall the sentence 女孩把闹钟放在桌子上（nv3hai2 ba3 nao4zhong1 fang4 zai4 zhuo1zi shang4）. Do you find something in common between 在桌子上（zai4 zhuo1zi shang4） and 给小红（gei3 xiao3hong2）, like their function in the sentence and where they are placed? Also, do you find something different between the two?";
     var wrongText = "Ooops! Do you remember the sentence 女孩把闹钟放在桌子上（nv3hai2 ba3 nao4zhong1 fang4 zai4 zhuo1zi shang4）? See where 在桌子上（zai4 zhuo1zi shang4） is placed and try again.";
     var first = true;
+    $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
         if(first === true) {
             first = false;
@@ -47,6 +48,7 @@
         }
         if(document.getElementsByName('ansRadio[]')[okAns].checked) {
             $(".text-danger").text(okText);
+            $("#next").parent().removeClass("disabled");
         }
         else {
             $(".text-danger").text(wrongText);
