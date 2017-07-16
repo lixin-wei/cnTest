@@ -49,13 +49,13 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         //保存log
         $f = fopen($fileNameNoEx.".txt", "w");
-        fwrite($f, "Answer log:\n");
+        fwrite($f, "Answer log:\r\n");
         foreach ($ans as $page => $val) {
-            fwrite($f, "$page : $val\n");
+            fwrite($f, "$page : $val\r\n");
         }
-        fwrite($f, "\nPage switching event log:\n");
+        fwrite($f, "\r\nPage switching event log:\r\n");
         foreach ($log as $l) {
-            fwrite($f, "{$l->time}s  --->  {$l->page}\n");
+            fwrite($f, "{$l->time}s  --->  {$l->page}\r\n");
         }
         fclose($f);
         echo "ok";

@@ -42,15 +42,15 @@ if (navigator.getUserMedia) {
         function saveRecording(blob, encoding) {
             console.log("start saving");
             //处理log
-            var finalLog = "Answer log:\n";
+            var finalLog = "Answer log:\r\n";
             Object.keys(dataPack.ans).forEach(function (key) {
                 // do something with obj[key]
-                finalLog += key + " : " + dataPack.ans[key] + "\n";
+                finalLog += key + " : " + dataPack.ans[key] + "\r\n";
             });
-            finalLog += "\nPage switching event log:\n";
+            finalLog += "\r\nPage switching event log:\r\n";
             for(var i=0 ; i<dataPack.log.length ; ++i) {
                 var x = dataPack.log[i];
-                finalLog += x.time + "  ---->  " + x.page + "\n";
+                finalLog += x.time + "  ---->  " + x.page + "\r\n";
             }
             var url1 = URL.createObjectURL(blob);
             var url2 = "data:application/octet-stream," + encodeURIComponent(finalLog);
