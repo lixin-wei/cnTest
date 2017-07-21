@@ -10,7 +10,7 @@
                 <li><a href="#" id="part3-3">Part 3-3</a></li>
                 <li><a href="#" id="part4">Part 4</a></li>
                 <li><a href="#" id="part5">Part 5</a></li>
-                <!--<li><a href="#" id="part6">Part 6</a></li>-->
+                <li><a href="https://qtrial2017q2az1.az1.qualtrics.com/jfe/form/SV_bjEbdNc1DIvRI7H" id="part6">Part 6</a></li>
             </ul>
         </div>
     </div>
@@ -70,6 +70,9 @@
             for (i=1 ; i<=20 ; ++i) pageList.push("5-1-" + i + ".html");
             pageList.push("5-2-intro.html");
             for (i=1 ; i<=20 ; ++i) pageList.push("5-2-" + i + ".html");
+        }
+        else if(this.id === "part6") {
+            window.open(this.href);
         }
         pageList.push("end-with-download.html");
         changeMainToUrl("nameInput.html");
