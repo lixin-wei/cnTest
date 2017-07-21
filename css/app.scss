@@ -6,6 +6,7 @@
 #index-links {
   text-align: center;
   ul {
+    margin: 0;
     list-style: none;
     padding: 0;
     li {
@@ -17,7 +18,9 @@
 #control-panel {
   margin: 10px 0 50px 0;
 }
-
+#instruction {
+  text-align: center;
+}
 .hide {
   display: none;
 }
