@@ -3,13 +3,12 @@
     <hr>
     <div class="video">
         <video width="100%" controls autoplay muted controlsList="nodownload">
-            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/3.mp4" type="video/mp4">
+            <source src="../res/3.1. Treatment - Guided Induction 拼音/video/1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
     <div class="pre">
-        <p>Watch the video clip. Where should we put 开（kai1）?</p>  <!-- 这个地方放置的是题目-->
-        <p>她①把②门③了。（ta1①ba3②men2③le.）</p>
+        <p>Watch the video clip. Which sentence is correct?</p>  <!-- 这个地方放置的是题目-->
     </div>
     <div class="text-danger">
     </div>
@@ -17,19 +16,19 @@
         <div class="form-check">
             <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="ansRadio[]" id="radioA">
-                ①
+                A. 她把洗毛巾了。（ta1 ba3 xi3 mao2jin1 le.）
             </label>
         </div>
         <div class="form-check">
             <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="ansRadio[]" id="radioB">
-                ②
+                B. 她洗把毛巾了。（ta1 xi3 ba3 mao2jin1 le.）
             </label>
         </div>
         <div class="form-check">
             <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="ansRadio[]" id="radioC">
-                ③
+                C. 她把毛巾洗了。（ta1 ba3 mao2jin1 xi3 le.）
             </label>
         </div>
     </div>
@@ -37,8 +36,8 @@
 </div>
 <script>
     var okAns = 2;
-    var okText = "Great! Do you see what function 开（kai1） has in the sentence and where it is placed?";
-    var wrongText = "Try again!";
+    var okText = "Congratulations! Does this sentence follow the special sequence that you have just summarized for 把 sentences (e.g., 她把门开了 ta1 ba3 men2 kai1 le)? Hint: Pay close attention to 毛巾（mao2jin1） and 洗（xi3）. Which word goes before the other? And how are they placed in relation to 把?";
+    var wrongText = "Try again! Do you remember the sentence 她把门";
     var first = true;
     $("#next").parent().addClass("disabled");
     $("#checkGroup").find("input").change(function () {
