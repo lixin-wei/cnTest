@@ -50,7 +50,10 @@ if (navigator.getUserMedia) {
             finalLog += "\r\nPage switching event log:\r\n";
             for(var i=0 ; i<dataPack.log.length ; ++i) {
                 var x = dataPack.log[i];
-                finalLog += x.time + "  ---->  " + x.page + "\r\n";
+                var hh = parseInt(x.time);
+                var ss = hh%60; hh=parseInt(hh/60);
+                var mm = hh%60; hh=parseInt(hh/60);
+                finalLog += hh + ":" + mm + ":" + ss + "  ---->  " + x.page + "\r\n";
             }
             var url1 = URL.createObjectURL(blob);
             var url2 = "data:application/octet-stream," + encodeURIComponent(finalLog);
