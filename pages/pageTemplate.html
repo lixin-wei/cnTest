@@ -76,6 +76,9 @@
                         dataPack.ans[pageList[currentPage]] = ans;
                     });
                 }
+                //默认答案为空
+                if(pageList[currentPage] !== undefined  && dataPack.ans[pageList[currentPage]] === undefined)
+                    dataPack.ans[pageList[currentPage]] = "None";
             });
         });
     }
