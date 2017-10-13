@@ -2,8 +2,7 @@
 $target_dir = "uploads/";
 $realName = trim($_POST['realName']);
 $part = $_POST['part'];
-$ans = json_decode($_POST['ans']);
-$log = json_decode($_POST['log']);
+$log = $_POST['log'];
 $fileNameNoEx = $target_dir . $realName . "-" . $part ."-". time();
 $target_file = $fileNameNoEx . ".mp3";
 $uploadOk = 1;
@@ -49,22 +48,14 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         //保存log
         $f = fopen($fileNameNoEx.".txt", "w");
-        fwrite($f, "Answer log:\r\n");
-        foreach ($ans as $page => $val) {
-            fwrite($f, "$page : $val\r\n");
-        }
-        fwrite($f, "\r\nPage switching event log:\r\n");
-        foreach ($log as $l) {
-            fwrite($f, "{$l->time}s  --->  {$l->page}\r\n");
-        }
+        fwrite($f, $log);
         fclose($f);
         echo "ok";
     } else {
-	var_dump($ans);
-	var_dump($log);
-	var_dump($_POST);
-	var_dump($_FILES);
-	var_dump($target_file);
+        var_dump($log);
+        var_dump($_POST);
+        var_dump($_FILES);
+        var_dump($target_file);
         echo "asdsad";
         echo "Sorry, there was an error uploading your file.";
     }

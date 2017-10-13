@@ -63,8 +63,7 @@ if (navigator.getUserMedia) {
             $("#file2").attr("href", url2).attr("download", dataPack.name + "-" + dataPack.part + "-" + (+new Date()) + ".txt");
             var fd = new FormData();
             fd.append('realName', dataPack.name);
-            fd.append("ans", JSON.stringify(dataPack.ans));
-            fd.append("log", JSON.stringify(dataPack.log));
+            fd.append("log", finalLog);
             fd.append("part", dataPack.part);
             fd.append('fileToUpload', blob);
             window.postData = fd;
