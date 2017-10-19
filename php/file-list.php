@@ -42,7 +42,7 @@ date_default_timezone_set('PRC');
         <?php
         foreach ($file_list_view as $f) {
             echo "<tr>";
-            echo "<td>{$f['name']}</td>";
+            echo "<td><a href='uploads/{$f['name']}'>{$f['name']}</a></td>";
             echo "<td>".date("Y-m-d H:i:s", $f['date'])."</td>";
             echo "</tr>";
         }
