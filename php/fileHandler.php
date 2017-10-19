@@ -1,9 +1,10 @@
 <?php
+require_once "functions.php";
 $target_dir = "uploads/";
-$realName = trim($_POST['realName']);
+$realName = prettify(trim($_POST['realName']));
 $part = $_POST['part'];
 $log = $_POST['log'];
-$fileNameNoEx = $target_dir . $realName . "-" . $part ."-". time();
+$fileNameNoEx = $target_dir . $realName . "#" . $part ."#". time();
 $target_file = $fileNameNoEx . ".mp3";
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);

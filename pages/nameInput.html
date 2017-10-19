@@ -18,11 +18,14 @@
 </div>
 
 <script>
+    function isValidName(name) {
+        return /^[A-Za-z ]+$/.test(name);
+    }
     $("#ok").click(function () {
-        var realName = $("#name-text-input").val();
-        if(realName === "") {
+        var realName = $("#name-text-input").val().trim();
+        if(!isValidName(realName)) {
             $("div.form-group").addClass("has-danger")
-                .find("div.form-control-feedback").text("Name can not be empty");
+                .find("div.form-control-feedback").text("Name can only consist of letters and space. And can't be empty!");
             return;
         }
         dataPack.name = realName;

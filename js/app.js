@@ -59,8 +59,8 @@ if (navigator.getUserMedia) {
             var url2 = "data:application/octet-stream," + encodeURIComponent(finalLog);
             console.log(url1);
             console.log(url2);
-            $("#file1").attr("href", url1).attr("download", dataPack.name + "-" + dataPack.part + "-" + (+new Date()) + ".mp3");
-            $("#file2").attr("href", url2).attr("download", dataPack.name + "-" + dataPack.part + "-" + (+new Date()) + ".txt");
+            $("#file1").attr("href", url1).attr("download", dataPack.name + "#" + dataPack.part + "#" + (+new Date()) + ".mp3");
+            $("#file2").attr("href", url2).attr("download", dataPack.name + "#" + dataPack.part + "#" + (+new Date()) + ".txt");
             var fd = new FormData();
             fd.append('realName', dataPack.name);
             fd.append("log", finalLog);
