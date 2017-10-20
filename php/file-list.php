@@ -9,12 +9,14 @@ foreach ($file_list as $index => $file_name) {
         $args = explode('#', $file_name);
         $name = prettify($args[0]);
         $part = $args[1];
+        $type = substr($args[2], 11, 3);
         if(!isset($file_list_view[$name]))
             $file_list_view[$name] = [];
         array_push($file_list_view[$name], array(
             'fileName' => $file_name,
             'partName' => $part,
-            'date' => filemtime("uploads/".$file_name)
+            'date' => filemtime("uploads/".$file_name),
+            'type' => $type
         ));
     }
 }
@@ -81,7 +83,7 @@ date_default_timezone_set('PRC');
                         <?php foreach ($file_list as $file): ?>
                             <tr>
                                 <td>
-                                    <a href="<?php echo "uploads/".$file['fileName']?>"><?php echo $file['partName']?></a>
+                                    <a href="<?php echo "uploads/".urlencode($file['fileName'])?>"><?php echo $file['partName'].".".$file['type']?></a>
                                 </td>
                                 <td>
                                     <?php echo date("Y-m-d, h:i:s", $file['date'])?>
