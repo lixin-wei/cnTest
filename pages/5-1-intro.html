@@ -2,6 +2,11 @@
     <h1>Part 5</h1>
     <hr>
     <h4>Section 1</h4>
+    <div class="audio">
+        <video width="100%" height="50" autoplay controls controlsList="nodownload" id="intro_audio">
+            <source src="../res/instructions/louder/part2%20&%20part4%20&%20part5%20section1%20介绍.mp3" type="video/ogg">
+        </video>
+    </div>
     <div class="lead" style="margin-bottom: 23px;">
         <p>Instruction:</p>
         <p>Watch the short video clip. How would you best express the meaning in one full sentence with 把? Be sure to use all given words in the box. Please speak loudly and clearly into the microphone.</p>
@@ -9,3 +14,7 @@
         <img src="../images/s1-example.png" class="img-fluid img-thumbnail" alt="example image">
     </div>
 </div>
+<script>
+    var audio = document.getElementById("intro_audio");
+    mustFinish(audio);
+</script>

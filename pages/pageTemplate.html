@@ -124,5 +124,11 @@
     $(window).resize(function () {
        $(".visualizer").attr("width", $("#main").width());
     });
-
+    //传入一个Vidio，必须听完才能下一页
+    function mustFinish(video) {
+        $("#next").parent().addClass("disabled");
+        video.onended = function () {
+            $("#next").parent().removeClass("disabled");
+        }
+    }
 </script>

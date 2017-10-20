@@ -62,6 +62,7 @@
         pageList = [];
         var i;
         if(this.id.charAt(4) === "1") {
+            pageList.push("part1-intro.html");
             pageList.push("1-1-intro.html");
             for (i=1 ; i<=83 ; ++i) pageList.push("1-1-" + i + ".html");
             pageList.push("end-no-download.html");
@@ -70,12 +71,14 @@
             return;
         }
         else if(this.id.charAt(4) === "2") {
+            pageList.push("part2-intro.html");
             pageList.push("2-1-intro.html");
             for (i=1 ; i<=10 ; ++i) pageList.push("2-1-" + i + ".html");
             pageList.push("2-2-intro.html");
             for (i=1 ; i<=10 ; ++i) pageList.push("2-2-" + i + ".html");
         }
         else if(this.id === "part3-1") {
+            pageList.push("part3-intro.html");
             pageList.push("3-1-intro.html");
             for (i=1 ; i<=8 ; ++i) pageList.push("3-1-" + i + ".html");
             pageList.push("3-1-L1.html");
@@ -88,6 +91,7 @@
             for (i=18 ; i<=20 ; ++i) pageList.push("3-1-" + i + ".html");
         }
         else if(this.id === "part3-2") {
+            pageList.push("part3-intro.html");
             pageList.push("3-2-intro.html");
             for(i=1 ; i<=20 ; ++i) pageList.push("3-2-" + i + ".html");
         }
@@ -96,12 +100,14 @@
             for(i=1 ; i<=20 ; ++i) pageList.push("3-3-" + i + ".html");
         }
         else if(this.id.charAt(4) === "4") {
+            pageList.push("part4-intro.html");
             pageList.push("4-1-intro.html");
             for (i=1 ; i<=20 ; ++i) pageList.push("4-1-" + i + ".html");
             pageList.push("4-2-intro.html");
             for (i=1 ; i<=20 ; ++i) pageList.push("4-2-" + i + ".html");
         }
         else if(this.id.charAt(4) === "5") {
+            pageList.push("part5-intro.html");
             pageList.push("5-1-intro.html");
             for (i=1 ; i<=20 ; ++i) pageList.push("5-1-" + i + ".html");
             pageList.push("5-2-intro.html");
@@ -109,6 +115,8 @@
         }
         else if(this.id === "part6") {
             window.open(this.href);
+            e.preventDefault();
+            return;
         }
         pageList.push("end-with-download.html");
         changeMainToUrl("nameInput.html");
