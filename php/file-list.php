@@ -2,7 +2,6 @@
 require_once "functions.php";
 $file_list = scandir("uploads/");
 
-
 $file_list_view = array();
 foreach ($file_list as $index => $file_name) {
     if(!is_dir("uploads/".$file_name)) {
@@ -83,7 +82,7 @@ date_default_timezone_set('PRC');
                         <?php foreach ($file_list as $file): ?>
                             <tr>
                                 <td>
-                                    <a href="<?php echo "uploads/".urlencode($file['fileName'])?>"><?php echo $file['partName'].".".$file['type']?></a>
+                                    <a href="<?php echo "uploads/".rawurlencode($file['fileName'])?>"><?php echo $file['partName'].".".$file['type']?></a>
                                 </td>
                                 <td>
                                     <?php echo date("Y-m-d, h:i:s", $file['date'])?>
